@@ -6,8 +6,8 @@ def registrar_usuario():
         if user in BD:
             print("El nombre de usuario ya está en uso. Por favor, ingrese otro.")
         else:
-            contraseña = input("Ingrese la contraseña: ")
-            BD[user] = {"contraseña": contraseña, "intentos_fallidos": 0}
+            password = input("Ingrese la contraseña: ")
+            BD[user] = {"contraseña": password, "intentos_fallidos": 0}
             print("Usuario registrado exitosamente.")
             break
 
@@ -19,8 +19,8 @@ def iniciar_sesion():
     if BD[user]["intentos_fallidos"] >= 3:
         print("La cuenta ha sido bloqueada. Por favor, contacte al administrador.")
         return
-    contraseña = input("Ingrese la contraseña: ")
-    if BD[user]["contraseña"] == contraseña:
+    password = input("Ingrese la contraseña: ")
+    if BD[user]["contraseña"] == password:
         print("Inicio de sesión exitoso.")
         BD[user]["intentos_fallidos"] = 0
     else:
